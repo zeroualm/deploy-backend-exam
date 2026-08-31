@@ -31,11 +31,6 @@ sentry_sdk.init(
     send_default_pii=True,
 )
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DJANGO_DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = [host.strip() for host in config('DJANGO_ALLOWED_HOSTS', default='localhost').split(',')]
-
 # Application definition
 
 INSTALLED_APPS = [
