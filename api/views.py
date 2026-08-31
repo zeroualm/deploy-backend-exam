@@ -1,8 +1,13 @@
 from django.shortcuts import render,get_object_or_404
+from django.http import JsonResponse
 from .models import Task,Category
 from .serializers import *
 from rest_framework import viewsets,status
 from rest_framework.response import Response
+
+def health_check(request):
+        """Une vue simple qui renvoie un statut de succès."""
+        return JsonResponse({"status": "ok", "message": "API is healthy"})
 
 class CategoryViewSet(viewsets.ViewSet):
     

@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from api.views import health_check
 
 def trigger_error(request):
     division_by_zero = 1 / 0
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/',include('api.urls')),
     path('sentry-debug/', trigger_error),
+    path('health/', health_check, name='health_check'),
 ]
